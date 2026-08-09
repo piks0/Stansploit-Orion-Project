@@ -1,5 +1,4 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -19,7 +18,26 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        ShowWelcome();
+    }
+
+    public void ShowWelcome()
+    {
+        MainShellGrid.Visibility = Visibility.Collapsed;
+        WelcomeHost.Visibility = Visibility.Visible;
+        WelcomeHost.Content = new Views.WelcomeView();
+    }
+
+    public void ShowMainShell()
+    {
+        WelcomeHost.Visibility = Visibility.Collapsed;
+        MainShellGrid.Visibility = Visibility.Visible;
         LoadView("Dashboard");
+    }
+
+    public void NavigateTo(string section)
+    {
+        LoadView(section);
     }
 
     private void Nav_Click(object sender, RoutedEventArgs e)
@@ -35,10 +53,8 @@ public partial class MainWindow : Window
         string title = section switch
         {
             "Dashboard" => "Dashboard",
-            "PowerPlan" => "Power Plan Optimization",
+            "Tweaks" => "System Tweaks & Optimization",
             "Installer" => "Gaming Utilities Installer",
-            "Debloater" => "System Debloater",
-            "Experimental" => "Experimental Tweaks",
             _ => section
         };
 
@@ -49,17 +65,11 @@ public partial class MainWindow : Window
             case "Dashboard":
                 MainContent.Content = new Views.DashboardView();
                 break;
-            case "PowerPlan":
-                MainContent.Content = new Views.PowerPlanView();
+            case "Tweaks":
+                MainContent.Content = new Views.TweaksView();
                 break;
             case "Installer":
                 MainContent.Content = new Views.InstallerView();
-                break;
-            case "Debloater":
-                MainContent.Content = new Views.DebloaterView();
-                break;
-            case "Experimental":
-                MainContent.Content = new Views.ExperimentalView();
                 break;
             default:
                 MainContent.Content = new TextBlock 
