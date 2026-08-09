@@ -97,9 +97,9 @@ public class SystemInfoService : IDisposable
     public async Task<string> GetGpuAsync() => await Task.Run(() => GetWmiValue("Win32_VideoController", "Name"));
     public async Task<string> GetOsAsync() => await Task.Run(() => GetWmiValue("Win32_OperatingSystem", "Caption"));
     
-    public string GetRam()
+    public async Task<string> GetRamAsync()
     {
-        try { _initTask.Wait(500); } catch { }
+        await _initTask;
         return _totalRamGb.ToString("F2") + " GB";
     }
 

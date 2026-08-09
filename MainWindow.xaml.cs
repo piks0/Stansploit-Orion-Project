@@ -1,24 +1,15 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace StansploitOrionProject;
 
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
     public MainWindow()
     {
         InitializeComponent();
-        ShowWelcome();
+        ShowMainShell();
     }
 
     public void ShowWelcome()
@@ -48,6 +39,11 @@ public partial class MainWindow : Window
         }
     }
 
+    private void CheckUpdates_Click(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("You are running the latest Orion build.", "Updates", MessageBoxButton.OK, MessageBoxImage.Information);
+    }
+
     private void LoadView(string section)
     {
         string title = section switch
@@ -59,6 +55,7 @@ public partial class MainWindow : Window
         };
 
         PageTitleText.Text = title;
+        SetActiveNavigation(section);
 
         switch (section)
         {
@@ -72,15 +69,45 @@ public partial class MainWindow : Window
                 MainContent.Content = new Views.InstallerView();
                 break;
             default:
-                MainContent.Content = new TextBlock 
-                { 
-                    Text = $"{section} Section Implementation Coming Soon...", 
-                    FontSize = 20, 
-                    VerticalAlignment = VerticalAlignment.Center, 
+                MainContent.Content = new TextBlock
+                {
+                    Text = $"{section} Section Implementation Coming Soon...",
+                    FontSize = 20,
+                    VerticalAlignment = VerticalAlignment.Center,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    Foreground = System.Windows.Media.Brushes.Black
+                    Foreground = Brushes.White
                 };
                 break;
         }
+    }
+
+    private void SetActiveNavigation(string section)
+    {
+        var activeBackground = new SolidColorBrush(Color.FromRgb(0x22, 0x15, 0x3B));
+        var inactiveBackground = Brushes.Transparent;
+        var activeBorderBrush = (Brush)Application.Current.Resources["AccentColor"]!;
+        var inactiveBorderBrush = Brushes.Transparent;
+        var activeForeground = (Brush)Application.Current.Resources["TextColor"]!;
+        var inactiveForeground = (Brush)Application.Current.Resources["MutedTextColor"]!;
+
+        DashboardNavBorder.Background = section == "Dashboard" ? activeBackground : inactiveBackground;
+        DashboardNavBorder.BorderBrush = section == "Dashboard" ? activeBorderBrush : inactiveBorderBrush;
+        DashboardNavLabel.Foreground = section == "Dashboard" ? activeForeground : inactiveForeground;
+        DashboardNavIcon.Fill = section == "Dashboard" ? (Brush)Application.Current.Resources["AccentColor"]! : (Brush)Application.Current.Resources["AccentColorBright"]!;
+
+        TweaksNavBorder.Background = section == "Tweaks" ? activeBackground : inactiveBackground;
+        TweaksNavBorder.BorderBrush = section == "Tweaks" ? activeBorderBrush : inactiveBorderBrush;
+        TweaksNavLabel.Foreground = section == "Tweaks" ? activeForeground : inactiveForeground;
+        TweaksNavIcon.Stroke = section == "Tweaks" ? (Brush)Application.Current.Resources["AccentColor"]! : (Brush)Application.Current.Resources["AccentColorBright"]!;
+
+        InstallerNavBorder.Background = section == "Installer" ? activeBackground : inactiveBackground;
+        InstallerNavBorder.BorderBrush = section == "Installer" ? activeBorderBrush : inactiveBorderBrush;
+        InstallerNavLabel.Foreground = section == "Installer" ? activeForeground : inactiveForeground;
+        InstallerNavIcon.Stroke = section == "Installer" ? (Brush)Application.Current.Resources["AccentColor"]! : (Brush)Application.Current.Resources["AccentColorBright"]!;
+
+        SettingsNavBorder.Background = section == "Settings" ? activeBackground : inactiveBackground;
+        SettingsNavBorder.BorderBrush = section == "Settings" ? activeBorderBrush : inactiveBorderBrush;
+        SettingsNavLabel.Foreground = section == "Settings" ? activeForeground : inactiveForeground;
+        SettingsNavIcon.Stroke = section == "Settings" ? (Brush)Application.Current.Resources["AccentColor"]! : (Brush)Application.Current.Resources["AccentColorBright"]!;
     }
 }

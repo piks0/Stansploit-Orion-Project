@@ -30,7 +30,7 @@ public partial class DashboardView : UserControl, IDisposable
 
         StaticCpuText.Text = $"CPU: {await cpuTask}";
         StaticGpuText.Text = $"GPU: {await gpuTask}";
-        StaticRamText.Text = $"Total RAM: {_sys.GetRam()}";
+        StaticRamText.Text = $"Total RAM: {await _sys.GetRamAsync()}";
         StaticOsText.Text = $"Operating System: {await osTask}";
         PowerText.Text = $"Active Power Plan: {_sys.GetActivePowerPlan()}";
         UptimeText.Text = $"Uptime: {_sys.GetUptime()}";

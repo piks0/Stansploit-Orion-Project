@@ -5,12 +5,14 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <SolidColorBrush x:Key="BackgroundColor" Color="#000000"/>
-            <SolidColorBrush x:Key="SidebarColor" Color="#000000"/>
-            <SolidColorBrush x:Key="AccentColor" Color="#E100FF"/>
-            <SolidColorBrush x:Key="PanelBackground" Color="#E100FF"/>
-            <SolidColorBrush x:Key="TextColor" Color="#E100FF"/>
-            <SolidColorBrush x:Key="ContentTextColor" Color="#000000"/>
+            <SolidColorBrush x:Key="BackgroundColor" Color="#0D0D14"/>
+            <SolidColorBrush x:Key="SidebarColor" Color="#0D0D14"/>
+            <SolidColorBrush x:Key="AccentColor" Color="#8B5CF6"/>
+            <SolidColorBrush x:Key="AccentColorBright" Color="#A78BFA"/>
+            <SolidColorBrush x:Key="PanelBackground" Color="#16161F"/>
+            <SolidColorBrush x:Key="PanelBorder" Color="#2A2A38"/>
+            <SolidColorBrush x:Key="TextColor" Color="#F5F5F7"/>
+            <SolidColorBrush x:Key="MutedTextColor" Color="#8B8B9A"/>
             
             <Style TargetType="Window">
                 <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
@@ -19,7 +21,7 @@
 
             <Style TargetType="Button">
                 <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="Foreground" Value="{StaticResource AccentColor}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
                 <Setter Property="BorderBrush" Value="Transparent"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="Padding" Value="10,5"/>
@@ -27,8 +29,7 @@
                 <Setter Property="FontWeight" Value="SemiBold"/>
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Foreground" Value="White"/>
-                        <Setter Property="Background" Value="#200020"/>
+                        <Setter Property="Foreground" Value="{StaticResource AccentColorBright}"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>

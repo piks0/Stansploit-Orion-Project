@@ -5,39 +5,39 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="700">
-    <StackPanel Margin="0,10,0,20" HorizontalAlignment="Center" Width="680">
+    <StackPanel Margin="0,30,0,20" HorizontalAlignment="Stretch" MaxWidth="800">
         <!-- Hardware Specifications Card -->
-        <TextBlock Text="HARDWARE SPECIFICATIONS" Foreground="{StaticResource AccentColor}" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
-        <Border BorderBrush="#333333" BorderThickness="1" Background="#151515" CornerRadius="6" Padding="15" Margin="0,0,0,25">
-            <StackPanel>
-                <TextBlock x:Name="StaticCpuText" Text="CPU: Loading..." Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="StaticGpuText" Text="GPU: Loading..." Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="StaticRamText" Text="Total RAM: Loading..." Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="StaticOsText" Text="Operating System: Loading..." Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,0" HorizontalAlignment="Center"/>
+        <TextBlock Text="HARDWARE" Foreground="{StaticResource MutedTextColor}" FontSize="14" FontWeight="Bold" Margin="0,0,0,15" HorizontalAlignment="Left"/>
+        <Border Background="{StaticResource PanelBackground}" CornerRadius="20" Padding="30" Margin="0,0,0,40" HorizontalAlignment="Stretch">
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBlock x:Name="StaticCpuText" Text="CPU: Loading..." Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,12" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="StaticGpuText" Text="GPU: Loading..." Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,12" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="StaticRamText" Text="Total RAM: Loading..." Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,12" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="StaticOsText" Text="Operating System: Loading..." Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,0" HorizontalAlignment="Left"/>
             </StackPanel>
         </Border>
 
         <!-- System Status & Metrics Card -->
-        <TextBlock Text="SYSTEM STATUS &amp; METRICS" Foreground="{StaticResource AccentColor}" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
-        <Border BorderBrush="#333333" BorderThickness="1" Background="#151515" CornerRadius="6" Padding="15" Margin="0,0,0,25">
-            <StackPanel>
-                <TextBlock x:Name="CpuUsageText" Text="CPU Usage: 0.0%" Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock x:Name="GpuUsageText" Text="GPU Usage: N/A" Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock x:Name="RamUsageText" Text="RAM Usage: 0.00 / 0.00 GB (0.0%)" Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock x:Name="DiskUsageText" Text="Disk Usage: 0.0%" Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock x:Name="NetUsageText" Text="Network: Down: 0.0 KB/s | Up: 0.0 KB/s" Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock x:Name="UptimeText" Text="Uptime: 00:00:00" Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,8" HorizontalAlignment="Center" TextAlignment="Center"/>
-                <TextBlock x:Name="PowerText" Text="Active Power Plan: Loading..." Foreground="{StaticResource AccentColor}" FontSize="14" FontWeight="SemiBold" Margin="0,0,0,0" HorizontalAlignment="Center" TextAlignment="Center"/>
+        <TextBlock Text="SYSTEM METRICS" Foreground="{StaticResource MutedTextColor}" FontSize="14" FontWeight="Bold" Margin="0,0,0,15" HorizontalAlignment="Left"/>
+        <Border Background="{StaticResource PanelBackground}" CornerRadius="20" Padding="30" Margin="0,0,0,40" HorizontalAlignment="Stretch">
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBlock x:Name="CpuUsageText" Text="CPU: 0.0%" Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,10" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="GpuUsageText" Text="GPU: N/A" Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,10" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="RamUsageText" Text="RAM: 0.00 / 0.00 GB" Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,10" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="DiskUsageText" Text="Disk: 0.0%" Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,10" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="NetUsageText" Text="Network: 0.0 KB/s" Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,10" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="UptimeText" Text="Uptime: 00:00:00" Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,10" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="PowerText" Text="Power: Loading..." Foreground="{StaticResource TextColor}" FontSize="16" Margin="0,0,0,0" HorizontalAlignment="Left"/>
             </StackPanel>
         </Border>
 
         <!-- Quick Actions Card -->
-        <TextBlock Text="QUICK ACTIONS" Foreground="{StaticResource AccentColor}" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
-        <Border BorderBrush="#333333" BorderThickness="1" Background="#151515" CornerRadius="6" Padding="15" Margin="0,0,0,10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Go to Tweaks" Click="GoToTweaks_Click" Margin="10,0" Padding="15,8" FontSize="14" FontWeight="Bold"/>
-                <Button Content="Go to Installer" Click="GoToInstaller_Click" Margin="10,0" Padding="15,8" FontSize="14" FontWeight="Bold"/>
-                <Button Content="Open Task Manager" Click="OpenTaskManager_Click" Margin="10,0" Padding="15,8" FontSize="14" FontWeight="Bold"/>
+        <TextBlock Text="QUICK ACTIONS" Foreground="{StaticResource MutedTextColor}" FontSize="14" FontWeight="Bold" Margin="0,0,0,15" HorizontalAlignment="Left"/>
+        <Border Background="{StaticResource PanelBackground}" CornerRadius="20" Padding="30" Margin="0,0,0,10" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Content="Tweaks" Click="GoToTweaks_Click" Margin="0,0,20,0" FontSize="16" Foreground="{StaticResource AccentColor}"/>
+                <Button Content="Installer" Click="GoToInstaller_Click" Margin="0,0,20,0" FontSize="16" Foreground="{StaticResource AccentColor}"/>
+                <Button Content="Task Manager" Click="OpenTaskManager_Click" Margin="0,0,0,0" FontSize="16" Foreground="{StaticResource AccentColor}"/>
             </StackPanel>
         </Border>
     </StackPanel>

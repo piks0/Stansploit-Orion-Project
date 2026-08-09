@@ -5,84 +5,184 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StansploitOrionProject"
         mc:Ignorable="d"
-        Title="Stansploit Orion Project" Height="700" Width="1100">
+        Title="Stansploit Orion Project"
+        Height="860"
+        Width="1360"
+        WindowStartupLocation="CenterScreen">
     <Grid Background="{StaticResource BackgroundColor}">
-        <!-- Welcome Screen Host -->
         <ContentControl x:Name="WelcomeHost" Visibility="Collapsed" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
 
-        <!-- Main Shell Grid (Sidebar + Content) -->
         <Grid x:Name="MainShellGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="215"/>
+                <ColumnDefinition Width="280"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Background="#0A0A0A">
+            <Border Grid.Column="0" Background="{StaticResource SidebarColor}" BorderBrush="#1C1C27" BorderThickness="0,0,1,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Margin="22,24,22,24">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" Width="38" Height="38" CornerRadius="12" Background="#22153B" BorderBrush="#3B2B63" BorderThickness="1">
+                                <Viewbox Width="18" Height="18">
+                                    <Path Data="M12 2 L14.5 8.5 L21 10 L14.5 11.5 L12 18 L9.5 11.5 L3 10 L9.5 8.5 Z" Fill="{StaticResource AccentColorBright}" Stretch="Uniform"/>
+                                </Viewbox>
+                            </Border>
+
+                            <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                                <TextBlock Text="STANSPLOIT" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextColor}"/>
+                                <TextBlock Text="ORION PROJECT" FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource MutedTextColor}" Margin="0,2,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+
+                    <Rectangle Grid.Row="1" Height="1" Fill="#1F2432" Margin="20,0,20,16"/>
+
+                    <StackPanel Grid.Row="2" Margin="18,0,18,0">
+                        <Button x:Name="DashboardNavButton" Tag="Dashboard" Click="Nav_Click" Padding="0" Margin="0,6" HorizontalContentAlignment="Stretch" Background="Transparent" BorderBrush="Transparent">
+                            <Border x:Name="DashboardNavBorder" Background="#22153B" BorderBrush="{StaticResource AccentColor}" BorderThickness="1" CornerRadius="12" Padding="12,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Width="18" Height="18" Margin="0,0,12,0">
+                                        <Path x:Name="DashboardNavIcon" Data="M3 4H11V12H3Z M13 4H21V8H13Z M13 10H21V20H13Z M3 14H11V20H3Z" Fill="{StaticResource AccentColor}" Stretch="Uniform"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="DashboardNavLabel" Grid.Column="1" Text="Dashboard" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Button>
+
+                        <Button x:Name="TweaksNavButton" Tag="Tweaks" Click="Nav_Click" Padding="0" Margin="0,6" HorizontalContentAlignment="Stretch" Background="Transparent" BorderBrush="Transparent">
+                            <Border x:Name="TweaksNavBorder" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" CornerRadius="12" Padding="12,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Width="18" Height="18" Margin="0,0,12,0">
+                                        <Path x:Name="TweaksNavIcon" Data="M4 7H20 M7 4V10 M17 4V10 M6 12H18 M9 15H15" Stroke="{StaticResource AccentColorBright}" StrokeThickness="1.8" Stretch="Uniform"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="TweaksNavLabel" Grid.Column="1" Text="Tweaks" Foreground="{StaticResource MutedTextColor}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Button>
+
+                        <Button x:Name="InstallerNavButton" Tag="Installer" Click="Nav_Click" Padding="0" Margin="0,6" HorizontalContentAlignment="Stretch" Background="Transparent" BorderBrush="Transparent">
+                            <Border x:Name="InstallerNavBorder" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" CornerRadius="12" Padding="12,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Width="18" Height="18" Margin="0,0,12,0">
+                                        <Path x:Name="InstallerNavIcon" Data="M12 3V16 M12 16L8 12 M12 16L16 12 M5 19H19" Stroke="{StaticResource AccentColorBright}" StrokeThickness="1.8" Stretch="Uniform"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="InstallerNavLabel" Grid.Column="1" Text="Installer" Foreground="{StaticResource MutedTextColor}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Button>
+
+                        <Button x:Name="SettingsNavButton" Tag="Settings" Click="Nav_Click" Padding="0" Margin="0,6" HorizontalContentAlignment="Stretch" Background="Transparent" BorderBrush="Transparent">
+                            <Border x:Name="SettingsNavBorder" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" CornerRadius="12" Padding="12,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Width="18" Height="18" Margin="0,0,12,0">
+                                        <Path x:Name="SettingsNavIcon" Data="M12 8.5A3.5 3.5 0 1 1 12 15.5A3.5 3.5 0 1 1 12 8.5Z M19 12L20.5 10.5 M19 12L20.5 13.5 M5 12L3.5 10.5 M5 12L3.5 13.5 M12 19L13.5 20.5 M12 19L10.5 20.5 M12 5L13.5 3.5 M12 5L10.5 3.5 M16.5 16.5L18 18 M16.5 16.5L15 15 M7.5 7.5L6 6 M7.5 7.5L9 9 M16.5 7.5L18 6 M16.5 7.5L15 9 M7.5 16.5L6 18 M7.5 16.5L9 15" Stroke="{StaticResource AccentColorBright}" StrokeThickness="1.4" Stretch="Uniform"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="SettingsNavLabel" Grid.Column="1" Text="Settings" Foreground="{StaticResource MutedTextColor}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Button>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3" Margin="18,0,18,20">
+                        <Border Background="#16161F" CornerRadius="16" BorderBrush="#2A2A38" BorderThickness="1" Padding="14">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Viewbox Width="16" Height="16" Margin="0,0,8,0">
+                                        <Path Data="M7 5H17V7H19V13H17V15H7V13H5V7H7Z M8 8V12H9V10H11V8H8Z" Fill="{StaticResource AccentColorBright}" Stretch="Uniform"/>
+                                    </Viewbox>
+                                    <TextBlock Text="Game Mode" FontWeight="SemiBold" Foreground="{StaticResource TextColor}"/>
+                                </StackPanel>
+                                <TextBlock Text="Inactive" Foreground="{StaticResource MutedTextColor}" Margin="24,6,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Grid Margin="0,12,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Ellipse Width="8" Height="8" Fill="#22C55E" Margin="0,0,8,0"/>
+                            <TextBlock Grid.Column="1" Text="Status: Ready" Foreground="{StaticResource MutedTextColor}" FontSize="12"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- Logo Area -->
-                <StackPanel Grid.Row="0" Margin="15,25,15,20">
-                    <TextBlock FontSize="20" FontWeight="Bold" TextAlignment="Center" Foreground="{StaticResource AccentColor}">
-                        <Run Text="Stansploit"/>
-                        <LineBreak/>
-                        <Run Text="Orion Project"/>
-                    </TextBlock>
-                </StackPanel>
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" Margin="24,22,24,16">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-                <!-- Divider -->
-                <Rectangle Grid.Row="1" Height="1" Fill="{StaticResource AccentColor}" Margin="0,0,0,20"/>
+                        <StackPanel Grid.Row="0" Margin="0,0,0,18">
+                            <TextBlock x:Name="PageTitleText" Text="Dashboard" FontSize="30" FontWeight="Bold" Foreground="{StaticResource TextColor}"/>
+                            <TextBlock Text="Monitor your system and optimize for the best gaming experience." Margin="0,6,0,0" FontSize="13" Foreground="{StaticResource MutedTextColor}"/>
+                        </StackPanel>
 
-                <!-- Navigation Options -->
-                <StackPanel Grid.Row="2" Margin="0,0" HorizontalAlignment="Stretch">
-                    <StackPanel.Resources>
-                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-                            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                            <Setter Property="Padding" Value="25,12"/>
-                            <Setter Property="Margin" Value="0,2"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border x:Name="Border" Background="Transparent" BorderThickness="4,0,0,0" BorderBrush="Transparent">
-                                            <ContentPresenter Margin="20,0,0,0"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter TargetName="Border" Property="Background" Value="#150018"/>
-                                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource AccentColor}"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </StackPanel.Resources>
-                    <Button Content="Dashboard" Click="Nav_Click" Tag="Dashboard"/>
-                    <Button Content="Tweaks" Click="Nav_Click" Tag="Tweaks"/>
-                    <Button Content="Installer" Click="Nav_Click" Tag="Installer"/>
-                    <Button Content="Settings" Click="Nav_Click" Tag="Settings"/>
-                </StackPanel>
-            </Grid>
+                        <ContentControl x:Name="MainContent" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+                    </Grid>
+                </ScrollViewer>
 
+                <Border Grid.Row="1" Background="#11111A" BorderBrush="#1C1C27" BorderThickness="0,1,0,0" Padding="18,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-            <!-- Sidebar Right Border (Thin bright magenta/purple vertical border) -->
-            <Rectangle Grid.Column="0" Width="1" HorizontalAlignment="Right" Fill="{StaticResource AccentColor}"/>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0">
+                            <Ellipse Width="8" Height="8" Fill="#22C55E" Margin="0,0,8,0"/>
+                            <TextBlock Text="Status: Ready" FontSize="12" Foreground="{StaticResource MutedTextColor}"/>
+                        </StackPanel>
 
-            <!-- Main Content Area -->
-            <Grid Grid.Column="1" Margin="30,25,30,30" HorizontalAlignment="Center" Width="700">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Text="Orion Engine v1.0.0" FontSize="12" HorizontalAlignment="Center" Foreground="{StaticResource MutedTextColor}"/>
 
-                <!-- Page Title (Left-aligned relative to the main content container) -->
-                <TextBlock x:Name="PageTitleText" Grid.Row="0" Text="Dashboard" FontSize="26" FontWeight="Bold" Foreground="{StaticResource AccentColor}" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-
-                <!-- Main Content Container (Positioned and left-aligned matching the title anchor point) -->
-                <ContentControl x:Name="MainContent" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+                        <Button Grid.Column="2" HorizontalAlignment="Right" Padding="0" Foreground="{StaticResource AccentColorBright}" Click="CheckUpdates_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Viewbox Width="14" Height="14" Margin="0,0,6,0">
+                                    <Path Data="M12 3V14 M12 14L7 9 M12 14L17 9 M4 19H20" Stroke="{StaticResource AccentColorBright}" StrokeThickness="1.8" Stretch="Uniform"/>
+                                </Viewbox>
+                                <TextBlock Text="Check for updates" Foreground="{StaticResource AccentColorBright}"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
             </Grid>
         </Grid>
     </Grid>

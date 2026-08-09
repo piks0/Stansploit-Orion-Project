@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:StansploitOrionProject.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="700">
-    <Grid Margin="0,10,0,0">
+    <Grid Margin="0,10,0,0" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -74,6 +74,6 @@
         </StackPanel>
 
         <!-- Content Area for Sub-views -->
-        <ContentControl x:Name="TweaksContent" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+        <ContentControl x:Name="TweaksContent" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch"/>
     </Grid>
 </UserControl>
