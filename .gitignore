@@ -1,0 +1,32 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+*.user
+*.userossc
+*.sln.docstates
+
+# NuGet packages
+packages/
+*.nupkg
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Executables and Libraries
+*.exe
+*.dll
+*.pdb
+*.exp
+*.lib
+*.ilk
+*.idb
+
+# Log files
+*.log
