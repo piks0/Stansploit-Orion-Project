@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "5vpHqNNoUbY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\marky\\Documents\\Stansploit-Orion-Project\\StansploitOrionProject.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marky\\.nuget\\packages\\system.management\\10.0.10\\system.management.10.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
