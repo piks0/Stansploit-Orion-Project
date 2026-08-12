@@ -8,13 +8,13 @@ C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\
 StansploitOrionProject
 none
 false
-TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\marky\Documents\Stansploit-Orion-Project\App.xaml
-81921888338
+91016699585
 
-16-1163932532
-207620007491
-MainWindow.xaml;Views\DashboardView.xaml;Views\DebloaterView.xaml;Views\ExperimentalView.xaml;Views\InstallerView.xaml;Views\PowerPlanView.xaml;Views\TweaksView.xaml;Views\WelcomeView.xaml;
+17-87684980
+207808440440
+MainWindow.xaml;Views\DashboardView.xaml;Views\DebloaterView.xaml;Views\ExperimentalView.xaml;Views\InstallerView.xaml;Views\PowerPlanView.xaml;Views\SettingsView.xaml;Views\TweaksView.xaml;Views\WelcomeView.xaml;
 
 False
 

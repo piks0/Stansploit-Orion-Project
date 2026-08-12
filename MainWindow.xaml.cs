@@ -68,6 +68,9 @@ public partial class MainWindow : Window
             case "Installer":
                 MainContent.Content = new Views.InstallerView();
                 break;
+            case "Settings":
+                MainContent.Content = new Views.SettingsView();
+                break;
             default:
                 MainContent.Content = new TextBlock
                 {

@@ -12,13 +12,4 @@
     <PackageReference Include="System.Management" Version="10.0.10" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Page Update="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <ApplicationDefinition Update="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </ApplicationDefinition>
-  </ItemGroup>
-
 </Project>

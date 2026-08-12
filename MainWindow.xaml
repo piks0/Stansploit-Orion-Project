@@ -34,15 +34,15 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Border Grid.Column="0" Width="38" Height="38" CornerRadius="12" Background="#22153B" BorderBrush="#3B2B63" BorderThickness="1">
+                            <Border Grid.Column="0" Width="38" Height="38" CornerRadius="12" Background="{StaticResource AccentColor}" BorderBrush="{StaticResource AccentColorBright}" BorderThickness="1">
                                 <Viewbox Width="18" Height="18">
-                                    <Path Data="M12 2 L14.5 8.5 L21 10 L14.5 11.5 L12 18 L9.5 11.5 L3 10 L9.5 8.5 Z" Fill="{StaticResource AccentColorBright}" Stretch="Uniform"/>
+                                    <Path Data="M12 2 L14.5 8.5 L21 10 L14.5 11.5 L12 18 L9.5 11.5 L3 10 L9.5 8.5 Z" Fill="{StaticResource TextColor}" Stretch="Uniform"/>
                                 </Viewbox>
                             </Border>
 
                             <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
                                 <TextBlock Text="STANSPLOIT" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextColor}"/>
-                                <TextBlock Text="ORION PROJECT" FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource MutedTextColor}" Margin="0,2,0,0"/>
+                                <TextBlock Text="ORION PROJECT" FontSize="11" FontWeight="SemiBold" Foreground="{StaticResource MutedTextColor}" Margin="0,2,0,0" TextOptions.TextFormattingMode="Display"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
@@ -151,7 +151,7 @@
 
                         <StackPanel Grid.Row="0" Margin="0,0,0,18">
                             <TextBlock x:Name="PageTitleText" Text="Dashboard" FontSize="30" FontWeight="Bold" Foreground="{StaticResource TextColor}"/>
-                            <TextBlock Text="Monitor your system and optimize for the best gaming experience." Margin="0,6,0,0" FontSize="13" Foreground="{StaticResource MutedTextColor}"/>
+                            <TextBlock x:Name="PageSubtitleText" Text="Monitor your system and optimize for the best gaming experience." Margin="0,6,0,0" FontSize="13" Foreground="{StaticResource MutedTextColor}"/>
                         </StackPanel>
 
                         <ContentControl x:Name="MainContent" Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>

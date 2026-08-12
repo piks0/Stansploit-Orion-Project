@@ -23,6 +23,26 @@ public class SystemInfoService : IDisposable
         _initTask = Task.Run(() =>
         {
             var sw = Stopwatch.StartNew();
+
+            // RAM total via WMI FIRST — it's cheap and the Dashboard needs it fastest.
+            try
+            {
+                using var searcher = new ManagementObjectSearcher("SELECT TotalPhysicalMemory FROM Win32_ComputerSystem");
+                foreach (var obj in searcher.Get())
+                {
+                    var val = obj["TotalPhysicalMemory"];
+                    if (val != null && ulong.TryParse(val.ToString(), out ulong bytes))
+                    {
+                        _totalRamGb = bytes / 1073741824.0;
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex) { Debug.WriteLine($"RAM WMI Init Failed: {ex.Message}"); }
+
+            if (_totalRamGb <= 0) _totalRamGb = 16.0;
+
+            // Slower counter setups happen after RAM is already known.
             try
             {
                 _cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total", true);
@@ -71,23 +91,6 @@ public class SystemInfoService : IDisposable
             }
             catch (Exception ex) { Debug.WriteLine($"GPU Counter Init Failed: {ex.Message}"); }
 
-            try
-            {
-                using var searcher = new ManagementObjectSearcher("SELECT TotalPhysicalMemory FROM Win32_ComputerSystem");
-                foreach (var obj in searcher.Get())
-                {
-                    var val = obj["TotalPhysicalMemory"];
-                    if (val != null && ulong.TryParse(val.ToString(), out ulong bytes))
-                    {
-                        _totalRamGb = bytes / 1073741824.0;
-                        break;
-                    }
-                }
-            }
-            catch (Exception ex) { Debug.WriteLine($"RAM WMI Init Failed: {ex.Message}"); }
-
-            if (_totalRamGb <= 0) _totalRamGb = 16.0;
-
             sw.Stop();
             Debug.WriteLine($"SystemInfoService Init completed in {sw.ElapsedMilliseconds}ms (Total RAM: {_totalRamGb} GB)");
         });
@@ -96,14 +99,21 @@ public class SystemInfoService : IDisposable
     public async Task<string> GetCpuAsync() => await Task.Run(() => GetWmiValue("Win32_Processor", "Name"));
     public async Task<string> GetGpuAsync() => await Task.Run(() => GetWmiValue("Win32_VideoController", "Name"));
     public async Task<string> GetOsAsync() => await Task.Run(() => GetWmiValue("Win32_OperatingSystem", "Caption"));
-    
+
+    /// Async version — waits for the FULL init task, no timeout guessing.
     public async Task<string> GetRamAsync()
     {
         await _initTask;
         return _totalRamGb.ToString("F2") + " GB";
     }
 
-    
+    /// Kept for compatibility, but prefer GetRamAsync(). Longer timeout as a safety net.
+    public string GetRam()
+    {
+        try { _initTask.Wait(5000); } catch { }
+        return _totalRamGb.ToString("F2") + " GB";
+    }
+
     public float GetCpuUsage()
     {
         if (_disposed || _cpuCounter == null) return 0f;
@@ -212,5 +222,3 @@ public class SystemInfoService : IDisposable
         }
     }
 }
-
-

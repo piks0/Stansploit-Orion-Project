@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StansploitOrionProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e9837e970a88cf4efc03487127720e69cafc34c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3dd74f5dd45a4bfd81ef16b2d396e4d314b0d9d")]
 [assembly: System.Reflection.AssemblyProductAttribute("StansploitOrionProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StansploitOrionProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

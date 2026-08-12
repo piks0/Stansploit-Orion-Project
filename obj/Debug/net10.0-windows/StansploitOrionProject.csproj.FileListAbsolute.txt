@@ -11,6 +11,7 @@ C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\View
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\ExperimentalView.baml
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\InstallerView.baml
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\PowerPlanView.baml
+C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\SettingsView.baml
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\WelcomeView.baml
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\DashboardView.g.cs
@@ -18,6 +19,7 @@ C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\View
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\ExperimentalView.g.cs
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\InstallerView.g.cs
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\PowerPlanView.g.cs
+C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\SettingsView.g.cs
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\TweaksView.g.cs
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\Views\WelcomeView.g.cs
 C:\Users\marky\Documents\Stansploit-Orion-Project\obj\Debug\net10.0-windows\App.g.cs
